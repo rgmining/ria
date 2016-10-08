@@ -1,0 +1,789 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ria.bipartite &mdash; Repeated Improvement Analysis 0.9.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <link rel="search" type="application/opensearchdescription+xml" title="Search within Repeated Improvement Analysis 0.9.0 documentation" href="../../_static/opensearch.xml"/>
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Repeated Improvement Analysis 0.9.0 documentation" href="../../index.html"/>
+        <link rel="up" title="ria" href="../ria.html"/>
+  
+  
+  
+  <meta name="title" content="Repeated Improvement Analysis 0.9.0 documentation"/>
+  <meta name="keywords" content="review,data mining,レビュー,マイニング"/>
+  
+
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Repeated Improvement Analysis 0.9.0 documentation"/>
+  
+  <meta property="og:image" content="https://avatars0.githubusercontent.com/u/22570694" />
+
+  
+  <meta content="summary" name="twitter:card" />
+  <meta content="@junkawamoto" name="twitter:site" />
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-4734862314145555",
+      enable_page_level_ads: true
+    });
+  </script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-82315630-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Repeated Improvement Analysis
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.9.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+  <div class="local-toc"></div>
+  <hr/>
+  
+  
+    <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/ria.html">ria package</a></li>
+</ul>
+
+  
+  <hr />
+  <div>
+    <div style="width: 300px; margin: auto;">
+      <ins class="adsbygoogle"
+           style="display:inline-block;width:300px;height:600px"
+           data-ad-client="ca-pub-4734862314145555"
+           data-ad-slot="6934003829"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </div>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Repeated Improvement Analysis</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../ria.html">ria</a> &raquo;</li>
+        
+      <li>ria.bipartite</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for ria.bipartite</h1><div class="highlight"><pre>
+<span></span><span class="c1">#</span>
+<span class="c1"># bipartite.py</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2016 Junpei Kawamoto</span>
+<span class="c1">#</span>
+<span class="c1"># This file is part of rgmining-ria.</span>
+<span class="c1">#</span>
+<span class="c1"># rgmining-ria is free software: you can redistribute it and/or modify</span>
+<span class="c1"># it under the terms of the GNU General Public License as published by</span>
+<span class="c1"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c1"># (at your option) any later version.</span>
+<span class="c1">#</span>
+<span class="c1"># rgmining-ria is distributed in the hope that it will be useful,</span>
+<span class="c1"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c1"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c1"># GNU General Public License for more details.</span>
+<span class="c1">#</span>
+<span class="c1"># You should have received a copy of the GNU General Public License</span>
+<span class="c1"># along with Foobar.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c1">#</span>
+<span class="sd">&quot;&quot;&quot;Provide classes for review mining algorithms based on a bipartite model.</span>
+
+<span class="sd">Especially, the following three classes are the core of the algorithm.</span>
+
+<span class="sd">:class:`BipartiteGraph`</span>
+<span class="sd">    Representing the bipartite graph model.</span>
+<span class="sd">    It provides basic methods to handle the graph and update method to compute</span>
+<span class="sd">    new anomalous scores for reviewers and new summaries for products.</span>
+<span class="sd">:class:`Reviewer`</span>
+<span class="sd">    Representing a reviewer.</span>
+<span class="sd">    It is modeled as a node in the bipartite graph.</span>
+<span class="sd">    Each reviewer has an anomalous score.</span>
+<span class="sd">:class:`Product`</span>
+<span class="sd">    Representing a product.</span>
+<span class="sd">    It is also modeled as a node in the bipartite graph.</span>
+<span class="sd">    Each product has a summary score of the given review scores.</span>
+
+<span class="sd">The bipartite model we use has two kinds of nodes; Reviewer and Product.</span>
+<span class="sd">A reviewer and a product are tied when the reviewer has reviewed the product.</span>
+<span class="sd">Each edge is a directed and has a label representing a score the reviewer has</span>
+<span class="sd">given to the product.</span>
+
+<span class="sd">In the bipartite graph model, both reviewers and products have scores.</span>
+<span class="sd">Each reviewer has an anomalous score which represent how anomalous the reviewer is.</span>
+<span class="sd">Each product has a summary of reviews the product has received.</span>
+
+<span class="sd">Here is a sample of the bipartite graph.</span>
+
+<span class="sd">.. graphviz::</span>
+
+<span class="sd">  digraph bipartite {</span>
+<span class="sd">    graph [label=&quot;Bipartite graph model.&quot;, rankdir = LR];</span>
+<span class="sd">    &quot;r1&quot; [label=&quot;Reviewer 1 \n (anomalous: 0.1)&quot;];</span>
+<span class="sd">    &quot;r2&quot; [label=&quot;Reviewer 2 \n (anomalous: 0.9)&quot;];</span>
+<span class="sd">    &quot;r3&quot; [label=&quot;Reviewer 3 \n (anomalous: 0.5)&quot;];</span>
+<span class="sd">    &quot;p1&quot; [label=&quot;Product 1 \n (summary: 0.3)&quot;];</span>
+<span class="sd">    &quot;p2&quot; [label=&quot;Product 2 \n (summary: 0.8)&quot;];</span>
+<span class="sd">    &quot;r1&quot; -&gt; &quot;p1&quot; [label=&quot;0.3&quot;];</span>
+<span class="sd">    &quot;r1&quot; -&gt; &quot;p2&quot; [label=&quot;0.9&quot;];</span>
+<span class="sd">    &quot;r2&quot; -&gt; &quot;p2&quot; [label=&quot;0.1&quot;];</span>
+<span class="sd">    &quot;r3&quot; -&gt; &quot;p2&quot; [label=&quot;0.5&quot;];</span>
+<span class="sd">  }</span>
+
+<span class="sd">This module defines the bipartite graph itself (:class:`bipartite.BipartiteGraph`)</span>
+<span class="sd">and two kinds of nodes, :class:`bipartite.Reviewer` and :class:`bipartite.Products`.</span>
+
+<span class="sd">There are also many variations of the bipartite graph.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">absolute_import</span><span class="p">,</span> <span class="n">division</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">logging</span> <span class="k">import</span> <span class="n">getLogger</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+
+<span class="kn">from</span> <span class="nn">common</span> <span class="k">import</span> <span class="n">memoized</span>
+<span class="kn">from</span> <span class="nn">ria.credibility</span> <span class="k">import</span> <span class="n">WeightedCredibility</span>
+<span class="kn">from</span> <span class="nn">review</span> <span class="k">import</span> <span class="n">AverageSummary</span>
+
+
+<span class="n">LOGGER</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">_Node</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Abstract node of the bipartite model.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      graph: parent graph instance.</span>
+<span class="sd">      name: name of the new node.</span>
+
+<span class="sd">    If the name is not given, object.__str__() will be used.</span>
+
+<span class="sd">    This class implements __eq__, __ne__, and __hash__ for convenience.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">      name: Name of this node.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;_graph&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;_hash&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct a new node.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">          name: Specifying the name of this node.</span>
+<span class="sd">                If not given, use strings returned from __str__ method.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">BipartiteGraph</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Given graph is not instance of Bipartite:&quot;</span><span class="p">,</span> <span class="n">graph</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span> <span class="o">=</span> <span class="n">graph</span>
+        <span class="k">if</span> <span class="n">name</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">_Node</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__str__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_hash</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)):</span>
+            <span class="k">return</span> <span class="kc">False</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">__hash__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hash</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_hash</span> <span class="o">=</span> <span class="mi">13</span> <span class="o">*</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span> <span class="o">+</span> <span class="mi">17</span> <span class="o">*</span> <span class="nb">hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hash</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+
+
+<div class="viewcode-block" id="Reviewer"><a class="viewcode-back" href="../../modules/ria.html#ria.bipartite.Reviewer">[docs]</a><span class="k">class</span> <span class="nc">Reviewer</span><span class="p">(</span><span class="n">_Node</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A node class representing Reviewer.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      graph: an instance of BipartiteGraph representing the parent graph.</span>
+<span class="sd">      credibility: an instance of credibility.Credibility to be used to update</span>
+<span class="sd">        scores.</span>
+<span class="sd">      name: name of this node. (default: None)</span>
+<span class="sd">      anomalous: initial anomalous score. (default: None)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;_anomalous&quot;</span><span class="p">,</span> <span class="s2">&quot;_credibility&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">credibility</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">anomalous</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Reviewer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_anomalous</span> <span class="o">=</span> <span class="n">anomalous</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_credibility</span> <span class="o">=</span> <span class="n">credibility</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">anomalous_score</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Anomalous score of this reviewer.</span>
+
+<span class="sd">        Initial anomalous score is :math:`1 / |R|`</span>
+<span class="sd">        where :math:`R` is a set of reviewers.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_anomalous</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_anomalous</span> <span class="k">else</span> <span class="mf">1.</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="o">.</span><span class="n">reviewers</span><span class="p">)</span>
+
+    <span class="nd">@anomalous_score</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">anomalous_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set an anomalous score.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">          v: the new anomalous score.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_anomalous</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Reviewer.update_anomalous_score"><a class="viewcode-back" href="../../modules/ria.html#ria.bipartite.Reviewer.update_anomalous_score">[docs]</a>    <span class="k">def</span> <span class="nf">update_anomalous_score</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update anomalous score.</span>
+
+<span class="sd">        New anomalous score is a weighted average of differences</span>
+<span class="sd">        between current summary and reviews. The weights come from credibilities.</span>
+
+<span class="sd">        Therefore, the new anomalous score of reviewer :math:`p` is as</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">           {\\rm anomalous}(r) = \\frac{</span>
+<span class="sd">             \\sum_{p \\in P} {\\rm credibility}(p)|</span>
+<span class="sd">                {\\rm review}(r, p)-{\\rm summary}(p)|</span>
+<span class="sd">           }{</span>
+<span class="sd">             \\sum_{p \\in P} {\\rm credibility}(p)</span>
+<span class="sd">           }</span>
+
+<span class="sd">        where :math:`P` is a set of products reviewed by reviewer :math:`p`,</span>
+<span class="sd">        review(:math:`r`, :math:`p`) is the rating reviewer :math:`r` posted</span>
+<span class="sd">        to product :math:`p`, summary(:math:`p`) and credibility(:math:`p`) are</span>
+<span class="sd">        summary and credibility of product :math:`p`, respectively.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">          absolute difference between old anomalous score and updated one.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">products</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="o">.</span><span class="n">retrieve_products</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">diffs</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="o">.</span><span class="n">retrieve_review</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">products</span>
+        <span class="p">]</span>
+
+        <span class="n">old</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">anomalous_score</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">anomalous_score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span>
+                <span class="n">diffs</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="nb">map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_credibility</span><span class="p">,</span> <span class="n">products</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">anomalous_score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">diffs</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">anomalous_score</span> <span class="o">-</span> <span class="n">old</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="Product"><a class="viewcode-back" href="../../modules/ria.html#ria.bipartite.Product">[docs]</a><span class="k">class</span> <span class="nc">Product</span><span class="p">(</span><span class="n">_Node</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A node class representing Product.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      graph: An instance of BipartiteGraph representing the parent graph.</span>
+<span class="sd">      name: Name of this node. (default: None)</span>
+<span class="sd">      summary_cls: Specify summary type. (default: AverageSummary)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;_summary&quot;</span><span class="p">,</span> <span class="s2">&quot;_summary_cls&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">summary_cls</span><span class="o">=</span><span class="n">AverageSummary</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Product</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_summary</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_summary_cls</span> <span class="o">=</span> <span class="n">summary_cls</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Summary of reviews for this product.</span>
+
+<span class="sd">        Initial summary is computed by</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \\frac{1}{|R|} \\sum_{r \\in R} \\mbox{review}(r),</span>
+
+<span class="sd">        where :math:`\\mbox{review}(r)` means review from reviewer :math:`r`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_summary</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_summary</span>
+
+        <span class="n">reviewers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="o">.</span><span class="n">retrieve_reviewers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_summary_cls</span><span class="p">(</span>
+            <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="o">.</span><span class="n">retrieve_review</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">reviewers</span><span class="p">])</span>
+
+    <span class="nd">@summary</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set summary.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">          v: A new summary. It could be a single number or lists.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="s2">&quot;__iter__&quot;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_summary_cls</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_summary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_summary_cls</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+
+<div class="viewcode-block" id="Product.update_summary"><a class="viewcode-back" href="../../modules/ria.html#ria.bipartite.Product.update_summary">[docs]</a>    <span class="k">def</span> <span class="nf">update_summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update summary.</span>
+
+<span class="sd">        The new summary is a weighted average of reviews i.e.</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \\frac{\\sum_{r \\in R} \\mbox{weight}(r) \\times \\mbox{review}(r)}</span>
+<span class="sd">                {\\sum_{r \\in R} \\mbox{weight}(r)},</span>
+
+<span class="sd">        where :math:`R` is a set of reviewers reviewing this product,</span>
+<span class="sd">        :math:`\\mbox{review}(r)` and :math:`\\mbox{weight}(r)` are</span>
+<span class="sd">        the review and weight of the reviewer :math:`r`, respectively.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">          w: A weight function.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">          absolute difference between old summary and updated one.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">old</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">v</span> <span class="c1"># pylint: disable=no-member</span>
+
+        <span class="n">reviewers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="o">.</span><span class="n">retrieve_reviewers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">reviews</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_graph</span><span class="o">.</span><span class="n">retrieve_review</span><span class="p">(</span>
+            <span class="n">r</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">score</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">reviewers</span><span class="p">]</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">anomalous_score</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">reviewers</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">summary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">reviews</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">summary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">reviews</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">weights</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">summary</span><span class="o">.</span><span class="n">v</span> <span class="o">-</span> <span class="n">old</span><span class="p">)</span> <span class="c1"># pylint: disable=no-member</span></div></div>
+
+
+<div class="viewcode-block" id="BipartiteGraph"><a class="viewcode-back" href="../../modules/ria.html#ria.bipartite.BipartiteGraph">[docs]</a><span class="k">class</span> <span class="nc">BipartiteGraph</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Bipartite graph model for review data mining.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">      summary_type: specify summary type class, default value is AverageSummary.</span>
+<span class="sd">      alpha: used to compute weight of anomalous scores, default value is 1.</span>
+<span class="sd">      credibility: credibility class to be used in this graph.</span>
+<span class="sd">        (Default: :class:`ria.credibility.WeightedCredibility`)</span>
+<span class="sd">      reviewer: Class of reviewers.</span>
+<span class="sd">      product: Class of products.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">      alpha: Parameter.</span>
+<span class="sd">      graph: Graph object of networkx.</span>
+<span class="sd">      reviewers: Collection of reviewers.</span>
+<span class="sd">      products: Collection of products.</span>
+<span class="sd">      credibility: Credibility object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">summary</span><span class="o">=</span><span class="n">AverageSummary</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">credibility</span><span class="o">=</span><span class="n">WeightedCredibility</span><span class="p">,</span> <span class="n">reviewer</span><span class="o">=</span><span class="n">Reviewer</span><span class="p">,</span> <span class="n">product</span><span class="o">=</span><span class="n">Product</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct bipartite graph.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">          summary_type: specify summary type class, default value is AverageSummary.</span>
+<span class="sd">          alpha: used to compute weight of anomalous scores, default value is 1.</span>
+<span class="sd">          credibility: credibility class to be used in this graph.</span>
+<span class="sd">                        (Default: WeightedCredibility)</span>
+<span class="sd">          reviewer: Class of reviewers.</span>
+<span class="sd">          product: Class of products.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reviewers</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">products</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_summary_cls</span> <span class="o">=</span> <span class="n">summary</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_review_cls</span> <span class="o">=</span> <span class="n">summary</span><span class="o">.</span><span class="n">review_class</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">credibility</span> <span class="o">=</span> <span class="n">credibility</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_reviewer_cls</span> <span class="o">=</span> <span class="n">reviewer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_product_cls</span> <span class="o">=</span> <span class="n">product</span>
+
+<div class="viewcode-block" id="BipartiteGraph.new_reviewer"><a class="viewcode-back" href="../../modules/ria.html#ria.bipartite.BipartiteGraph.new_reviewer">[docs]</a>    <span class="k">def</span> <span class="nf">new_reviewer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">anomalous</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new reviewer.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">          name: name of the new reviewer.</span>
+<span class="sd">          anomalous: initial anomalous score. (default: None)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">          A new reviewer instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reviewer_cls</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">credibility</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">credibility</span><span class="p">,</span> <span class="n">anomalous</span><span class="o">=</span><span class="n">anomalous</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reviewers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">n</span></div>
+
+<div class="viewcode-block" id="BipartiteGraph.new_product"><a class="viewcode-back" href="../../modules/ria.html#ria.bipartite.BipartiteGraph.new_product">[docs]</a>    <span class="k">def</span> <span class="nf">new_product</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Create a new product.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">          name: name of the new product.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">          A new product instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_product_cls</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">summary_cls</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_summary_cls</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">products</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">n</span></div>
+
+<div class="viewcode-block" id="BipartiteGraph.add_review"><a class="viewcode-back" href="../../modules/ria.html#ria.bipartite.BipartiteGraph.add_review">[docs]</a>    <span class="k">def</span> <span class="nf">add_review</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reviewer</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">review</span><span class="p">,</span> <span class="n">date</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add a new review from a given reviewer to a given product.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">          reviewer: an instance of Reviewer.</span>
+<span class="sd">          product: an instance of Product.</span>
+<span class="sd">          review: a float value.</span>
+<span class="sd">          date: date the review issued.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">          the added new review object.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">          TypeError: when given reviewer and product aren&#39;t instance of</span>
+<span class="sd">            specified reviewer and product class when this graph is constructed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reviewer</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reviewer_cls</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Type of given reviewer isn&#39;t acceptable:&quot;</span><span class="p">,</span> <span class="n">reviewer</span><span class="p">,</span>
+                <span class="s2">&quot;, expected:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reviewer_cls</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">product</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_product_cls</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Type of given product isn&#39;t acceptable:&quot;</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span>
+                <span class="s2">&quot;, expected:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_product_cls</span><span class="p">)</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="n">date</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_review_cls</span><span class="p">(</span><span class="n">review</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">reviewer</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span> <span class="n">review</span><span class="o">=</span><span class="n">r</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">r</span></div>
+
+    <span class="nd">@memoized</span>
+<div class="viewcode-block" id="BipartiteGraph.retrieve_products"><a class="viewcode-back" href="../../modules/ria.html#ria.bipartite.BipartiteGraph.retrieve_products">[docs]</a>    <span class="k">def</span> <span class="nf">retrieve_products</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reviewer</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve products reviewed by a given reviewer.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">          reviewer: A reviewer.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">          A list of products which the reviewer reviews.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">          TypeError: when given reviewer isn&#39;t instance of specified reviewer</span>
+<span class="sd">            class when this graph is constructed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reviewer</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reviewer_cls</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Type of given reviewer isn&#39;t acceptable:&quot;</span><span class="p">,</span> <span class="n">reviewer</span><span class="p">,</span>
+                <span class="s2">&quot;, expected:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reviewer_cls</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">successors</span><span class="p">(</span><span class="n">reviewer</span><span class="p">)</span></div>
+
+    <span class="nd">@memoized</span>
+<div class="viewcode-block" id="BipartiteGraph.retrieve_reviewers"><a class="viewcode-back" href="../../modules/ria.html#ria.bipartite.BipartiteGraph.retrieve_reviewers">[docs]</a>    <span class="k">def</span> <span class="nf">retrieve_reviewers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">product</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve reviewers who reviewed a given product.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">          product: A product specifying reviewers.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">          A list of reviewers who review the product.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">          TypeError: when given product isn&#39;t instance of specified product</span>
+<span class="sd">            class when this graph is constructed.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">product</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_product_cls</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Type of given product isn&#39;t acceptable:&quot;</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span>
+                <span class="s2">&quot;, expected:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_product_cls</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">predecessors</span><span class="p">(</span><span class="n">product</span><span class="p">)</span></div>
+
+    <span class="nd">@memoized</span>
+<div class="viewcode-block" id="BipartiteGraph.retrieve_review"><a class="viewcode-back" href="../../modules/ria.html#ria.bipartite.BipartiteGraph.retrieve_review">[docs]</a>    <span class="k">def</span> <span class="nf">retrieve_review</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reviewer</span><span class="p">,</span> <span class="n">product</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve review that the given reviewer put the given product.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">          reviewer: An instance of Reviewer.</span>
+<span class="sd">          product: An instance of Product.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">          A review object.</span>
+
+<span class="sd">        Raises:</span>
+<span class="sd">          TypeError: when given reviewer and product aren&#39;t instance of</span>
+<span class="sd">            specified reviewer and product class when this graph is constructed.</span>
+<span class="sd">          KeyError: When the reviewer does not review the product.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reviewer</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reviewer_cls</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Type of given reviewer isn&#39;t acceptable:&quot;</span><span class="p">,</span> <span class="n">reviewer</span><span class="p">,</span>
+                <span class="s2">&quot;, expected:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reviewer_cls</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">product</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_product_cls</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s2">&quot;Type of given product isn&#39;t acceptable:&quot;</span><span class="p">,</span> <span class="n">product</span><span class="p">,</span>
+                <span class="s2">&quot;, expected:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_product_cls</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">[</span><span class="n">reviewer</span><span class="p">][</span><span class="n">product</span><span class="p">][</span><span class="s2">&quot;review&quot;</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
+                <span class="s2">&quot;</span><span class="si">{0}</span><span class="s2"> does not review </span><span class="si">{1}</span><span class="s2">.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">reviewer</span><span class="p">,</span> <span class="n">product</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="BipartiteGraph.update"><a class="viewcode-back" href="../../modules/ria.html#ria.bipartite.BipartiteGraph.update">[docs]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Update reviewers&#39; anomalous scores and products&#39; summaries.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">          maximum absolute difference between old summary and new one, and</span>
+<span class="sd">          old anomalous score and new one.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_weight_generator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reviewers</span><span class="p">)</span>
+        <span class="n">diff_p</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">update_summary</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">products</span><span class="p">)</span>
+        <span class="n">diff_a</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">update_anomalous_score</span><span class="p">()</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">reviewers</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">diff_p</span><span class="p">,</span> <span class="n">diff_a</span><span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">_weight_generator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reviewers</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compute a weight function for the given reviewers.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">          reviewers: a set of reviewers to compute weight function.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">          a function computing a weight for a reviewer.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="o">.</span><span class="n">anomalous_score</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">reviewers</span><span class="p">]</span>
+        <span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+        <span class="n">sigma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">sigma</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">w</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+                <span class="sd">&quot;&quot;&quot;Compute a weight for the given reviewer.</span>
+
+<span class="sd">                Args:</span>
+<span class="sd">                  v: anomalous score of a reviewer.</span>
+<span class="sd">                Returns:</span>
+<span class="sd">                  weight of the given anomalous score.</span>
+<span class="sd">                &quot;&quot;&quot;</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">exp</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="p">(</span><span class="n">v</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigma</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="mf">1.</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">+</span> <span class="n">exp</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">OverflowError</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="mf">0.</span>
+
+            <span class="k">return</span> <span class="n">w</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Sigma = 0 means all reviews have same anomalous scores.</span>
+            <span class="c1"># In this case, all reviews should be treated as same.</span>
+            <span class="k">return</span> <span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="mf">1.</span>
+
+<div class="viewcode-block" id="BipartiteGraph.dump_credibilities"><a class="viewcode-back" href="../../modules/ria.html#ria.bipartite.BipartiteGraph.dump_credibilities">[docs]</a>    <span class="k">def</span> <span class="nf">dump_credibilities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Dump credibilities of all products.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">          output: a writable object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">products</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">({</span>
+                <span class="s2">&quot;product_id&quot;</span><span class="p">:</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="s2">&quot;credibility&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">credibility</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+            <span class="p">},</span> <span class="n">output</span><span class="p">)</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BipartiteGraph.to_pydot"><a class="viewcode-back" href="../../modules/ria.html#ria.bipartite.BipartiteGraph.to_pydot">[docs]</a>    <span class="k">def</span> <span class="nf">to_pydot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Convert this graph to PyDot object.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">          PyDot object representing this graph.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">nx</span><span class="o">.</span><span class="n">nx_pydot</span><span class="o">.</span><span class="n">to_pydot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Junpei Kawamoto.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.9.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57f1fa5b740feddd"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+ria package
+===========
+
+.. automodule:: ria
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+Submodules
+----------
+
+ria.bipartite module
+--------------------
+
+.. automodule:: ria.bipartite
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+ria.bipartite_sum module
+------------------------
+
+.. automodule:: ria.bipartite_sum
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+ria.credibility module
+----------------------
+
+.. automodule:: ria.credibility
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+ria.one module
+--------------
+
+.. automodule:: ria.one
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
