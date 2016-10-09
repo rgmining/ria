@@ -1,5 +1,7 @@
-Repeated Improvement Analysis Algorithm
-=========================================
+.. _top:
+
+Repeated Improvement Analysis
+===============================
 .. raw:: html
 
    <div class="addthis_inline_share_toolbox"></div>
