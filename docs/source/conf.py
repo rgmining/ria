@@ -69,7 +69,7 @@ author = u'Junpei Kawamoto'
 # built documents.
 #
 # The short X.Y version.
-version = u'0.9.0'
+version = u'0.9'
 # The full version, including alpha/beta/rc tags.
 release = u'0.9.0'
 
@@ -128,11 +128,6 @@ todo_include_todos = False
 # To add GitHub link.
 rst_prolog = """
 :github_url: https://github.com/rgmining/ria
-:base_url: https://rgmining.github.io/ria/
-:description: This package provides 4 algorithms for review graph mining project.
-    **Mutually Reinforcing Analysis (MRA)** algorithm is an algorithm we've
-    introduced in DEXA 2011, **Repeated Improvement Analysis (RIA)** algorithm
-    is an algorithm we've introduced in DEIM 2015.
 """
 
 # -- Options for HTML output ----------------------------------------------
@@ -141,6 +136,15 @@ rst_prolog = """
 # a list of builtin themes.
 #
 html_theme = "sphinx_rtd_theme"
+
+html_context = {
+    "base_url": "https://rgmining.github.io/ria/",
+    "twitter": "@junkawamoto",
+    "google_analytics": "UA-82315630-2",
+    "google_adsense": "ca-pub-4734862314145555",
+    "google_adsense_slot": "6934003829",
+    "addthis": "ra-57f1fa5b740feddd"
+}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
