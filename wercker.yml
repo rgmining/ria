@@ -1,9 +1,13 @@
 box: jkawamoto/ghp-box
 build:
   steps:
+    - script:
+        name: Prepare submodules
+        code: |-
+          git submodule update --init
     - jkawamoto/sphinx:
         basedir: docs
-        packages: sphinx-autobuild sphinxcontrib-napoleon -e git+https://github.com/snide/sphinx_rtd_theme#egg=sphinx_rtd_theme-master
+        packages: sphinx-autobuild sphinxcontrib-napoleon -e git+https://github.com/snide/sphinx_rtd_theme#egg=sphinx_rtd_theme-master -e git+https://github.com/jkawamoto/sphinx@multiline-docinfo#egg=sphinx-multiline-docinfo
 deploy:
   steps:
     - jkawamoto/ghp-import:
