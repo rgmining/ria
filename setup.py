@@ -43,7 +43,7 @@ setup(
     author="Junpei Kawamoto",
     author_email="kawamoto.junpei@gmail.com",
     description="Repeated Improvement Analysis Algorithm for Review graph mining project",
-    url="https://github.com/rgmining/common",
+    url="https://github.com/rgmining/ria",
     packages=find_packages(exclude=["tests"]),
     install_requires=_load_requires_from_file("requirements.txt"),
     test_suite='tests.suite',
