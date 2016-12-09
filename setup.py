@@ -53,7 +53,7 @@ def load_links_from_file(filepath):
 
 setup(
     name='rgmining-ria',
-    version='0.9.1',
+    version='0.9.2',
     author="Junpei Kawamoto",
     author_email="kawamoto.junpei@gmail.com",
     description="Repeated Improvement Analysis Algorithm for Review graph mining project",
