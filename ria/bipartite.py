@@ -384,8 +384,7 @@ class BipartiteGraph(object):
             raise TypeError(
                 "Type of given product isn't acceptable:", product,
                 ", expected:", self._product_cls)
-        _ = date
-        r = self._review_cls(review)
+        r = self._review_cls(review, date=date)
         self.graph.add_edge(reviewer, product, review=r)
         return r
 
