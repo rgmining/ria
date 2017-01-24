@@ -1,7 +1,7 @@
 #
 # setup.py
 #
-# Copyright (c) 2016 Junpei Kawamoto
+# Copyright (c) 2016-2017 Junpei Kawamoto
 #
 # This file is part of rgmining-ria.
 #
@@ -53,7 +53,7 @@ def load_links_from_file(filepath):
 
 setup(
     name='rgmining-ria',
-    version='0.9.2',
+    version='0.9.3',
     author="Junpei Kawamoto",
     author_email="kawamoto.junpei@gmail.com",
     description="Repeated Improvement Analysis Algorithm for Review graph mining project",
