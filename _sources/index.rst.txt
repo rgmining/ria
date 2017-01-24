@@ -1,6 +1,6 @@
 :description: This package provides 4 algorithms for review graph mining project.
-    **Mutually Reinforcing Analysis (MRA)** algorithm is an algorithm we've
-    introduced in DEXA 2011, **Repeated Improvement Analysis (RIA)** algorithm
+    Mutually Reinforcing Analysis (MRA) algorithm is an algorithm we've
+    introduced in DEXA 2011, Repeated Improvement Analysis (RIA) algorithm
     is an algorithm we've introduced in DEIM 2015.
 
 .. _top:
