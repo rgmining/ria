@@ -16,51 +16,47 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+# along with rgmining-ria.  If not, see <http://www.gnu.org/licenses/>.
 #
 # pylint: skip-file
 """Package information of repeated improvement analysis algorithm.
 """
+from os import path
 from setuptools import setup, find_packages
 
 
-def take_package_name(name):
-    """Returns a package name.
+def read(fname):
+    """Read a file.
     """
-    if name.startswith("-e"):
-        return name[name.find("=")+1:name.rfind("-")]
-    else:
-        return name.strip()
+    return open(path.join(path.dirname(__file__), fname)).read()
 
 
 def load_requires_from_file(filepath):
     """Read a package list from a given file path.
+
+    Args:
+      filepath: file path of the package list.
+
+    Returns:
+      a list of package names.
     """
     with open(filepath) as fp:
-        return [take_package_name(pkg_name) for pkg_name in fp.readlines()]
-
-
-def load_links_from_file(filepath):
-    """Read a package list and returns links.
-    """
-    res = []
-    with open(filepath) as fp:
-        for pkg_name in fp.readlines():
-            if pkg_name.startswith("-e"):
-                res.append(pkg_name.split(" ")[1])
-    return res
+        return [pkg_name.strip() for pkg_name in fp.readlines()]
 
 
 setup(
     name='rgmining-ria',
-    version='0.9.3',
+    use_scm_version=True,
     author="Junpei Kawamoto",
     author_email="kawamoto.junpei@gmail.com",
     description="Repeated Improvement Analysis Algorithm for Review graph mining project",
+    long_description=read("README.rst"),
     url="https://github.com/rgmining/ria",
     packages=find_packages(exclude=["tests"]),
+    setup_requires=[
+        "setuptools_scm"
+    ],
     install_requires=load_requires_from_file("requirements.txt"),
-    dependency_links=load_links_from_file("requirements.txt"),
     test_suite='tests.suite',
     license="GPLv3",
     classifiers=[

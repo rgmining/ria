@@ -5,6 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/rgmining/ria/badges/gpa.svg)](https://codeclimate.com/github/rgmining/ria)
 [![Release](https://img.shields.io/badge/release-0.9.3-brightgreen.svg)](https://github.com/rgmining/ria/releases/tag/v0.9.3)
 
+[![Logo](https://rgmining.github.io/ria/_static/image.png)](https://rgmining.github.io/ria/)
 
 This package provides 4 algorithms for review graph mining project.
 [Mutually Reinforcing Analysis (MRA)](http://www.anrdoezrs.net/links/8186671/type/dlg/http://link.springer.com/chapter/10.1007%2F978-3-642-23088-2_25)
@@ -28,4 +29,4 @@ pip install --upgrade rgmining-ria
 
 ## License
 This software is released under The GNU General Public License Version 3,
-see [COPYING](COPYING) for more detail.
+see [COPYING](https://github.com/rgmining/ria/blob/master/COPYING) for more detail.
