@@ -46,7 +46,7 @@ for more detail.
    :target: https://app.wercker.com/project/byKey/7751cf9d910a68b30ab010c5c341eb59
 .. |Code Climate| image:: https://codeclimate.com/github/rgmining/ria/badges/gpa.svg
    :target: https://codeclimate.com/github/rgmining/ria
-.. |Release| image:: https://img.shields.io/badge/release-0.9.4-brightgreen.svg
-   :target: https://github.com/rgmining/ria/releases/tag/v0.9.4
+.. |Release| image:: https://img.shields.io/badge/release-0.9.5-brightgreen.svg
+   :target: https://github.com/rgmining/ria/releases/tag/v0.9.5
 .. |Logo| image:: https://rgmining.github.io/ria/_static/image.png
    :target: https://rgmining.github.io/ria/
