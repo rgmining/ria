@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/rgmining/ria.svg?branch=master)](https://travis-ci.org/rgmining/ria)
 [![wercker status](https://app.wercker.com/status/7751cf9d910a68b30ab010c5c341eb59/s/master "wercker status")](https://app.wercker.com/project/byKey/7751cf9d910a68b30ab010c5c341eb59)
 [![Code Climate](https://codeclimate.com/github/rgmining/ria/badges/gpa.svg)](https://codeclimate.com/github/rgmining/ria)
-[![Release](https://img.shields.io/badge/release-0.9.3-brightgreen.svg)](https://github.com/rgmining/ria/releases/tag/v0.9.3)
+[![Release](https://img.shields.io/badge/release-0.9.4-brightgreen.svg)](https://github.com/rgmining/ria/releases/tag/v0.9.4)
 
 [![Logo](https://rgmining.github.io/ria/_static/image.png)](https://rgmining.github.io/ria/)
 
@@ -23,8 +23,8 @@ See [the documents](https://rgmining.github.io/ria/) for more information.
 ## Installation
 Use `pip` to install this package.
 
-```
-pip install --upgrade rgmining-ria
+```shell
+$ pip install --upgrade rgmining-ria
 ```
 
 ## License
