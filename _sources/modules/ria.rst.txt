@@ -9,32 +9,32 @@ ria package
 Submodules
 ----------
 
-ria.bipartite module
---------------------
+ria\.bipartite module
+---------------------
 
 .. automodule:: ria.bipartite
     :members:
     :undoc-members:
     :show-inheritance:
 
-ria.bipartite_sum module
-------------------------
+ria\.bipartite\_sum module
+--------------------------
 
 .. automodule:: ria.bipartite_sum
     :members:
     :undoc-members:
     :show-inheritance:
 
-ria.credibility module
-----------------------
+ria\.credibility module
+-----------------------
 
 .. automodule:: ria.credibility
     :members:
     :undoc-members:
     :show-inheritance:
 
-ria.one module
---------------
+ria\.one module
+---------------
 
 .. automodule:: ria.one
     :members:
