@@ -199,7 +199,7 @@ class Reviewer(_Node):
         old = self.anomalous_score
         try:
             self.anomalous_score = np.average(
-                diffs, weights=map(self._credibility, products))
+                diffs, weights=list(map(self._credibility, products)))
         except ZeroDivisionError:
             self.anomalous_score = np.average(diffs)
 
@@ -273,7 +273,7 @@ class Product(_Node):
         Returns:
           absolute difference between old summary and updated one.
         """
-        old = self.summary.v # pylint: disable=no-member
+        old = self.summary.v  # pylint: disable=no-member
 
         reviewers = self._graph.retrieve_reviewers(self)
         reviews = [self._graph.retrieve_review(
@@ -283,7 +283,7 @@ class Product(_Node):
             self.summary = np.mean(reviews)
         else:
             self.summary = np.average(reviews, weights=weights)
-        return abs(self.summary.v - old) # pylint: disable=no-member
+        return abs(self.summary.v - old)  # pylint: disable=no-member
 
 
 class BipartiteGraph(object):
