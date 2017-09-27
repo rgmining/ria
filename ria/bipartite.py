@@ -406,7 +406,7 @@ class BipartiteGraph(object):
             raise TypeError(
                 "Type of given reviewer isn't acceptable:", reviewer,
                 ", expected:", self._reviewer_cls)
-        return self.graph.successors(reviewer)
+        return list(self.graph.successors(reviewer))
 
     @memoized
     def retrieve_reviewers(self, product):
@@ -426,7 +426,7 @@ class BipartiteGraph(object):
             raise TypeError(
                 "Type of given product isn't acceptable:", product,
                 ", expected:", self._product_cls)
-        return self.graph.predecessors(product)
+        return list(self.graph.predecessors(product))
 
     @memoized
     def retrieve_review(self, reviewer, product):
